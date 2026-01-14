@@ -1,0 +1,21 @@
+[
+  {
+    "uid": "U0341",
+    "order": 341,
+    "text_ref": { "start": 3120, "end": 3184 },
+
+    "semantic": "vec_00001234",
+
+    "agent_deltas": {
+      "Alice": {
+        "emotion_delta": "vec_00004521",
+        "prosody_delta": "vec_00004522",
+        "voice_delta": "vec_00004523"
+      }
+    },
+
+    "environment_delta": "vec_00006781",
+
+    "confidence": 0.74
+  }
+]

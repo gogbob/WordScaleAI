@@ -1,0 +1,15 @@
+{
+  "unit_id": "U0341",
+  "start_time": 12.4,
+  "end_time": 14.1,
+  "speaker": "Alice",
+  "tts_embedding": "vec_512",        // projected from V_t
+  "pitch_curve": [100, 102, 98, ...],
+  "volume_curve": [0.7, 0.8, 0.6, ...],
+  "rate_curve": [1.0, 1.1, 0.95, ...],
+  "emotion_influence": "vec_256",   // for optional fine-tuning
+  "environment_sfx": [
+    {"type": "rain", "intensity": 0.3},
+    {"type": "footsteps", "intensity": 0.5}
+  ]
+}

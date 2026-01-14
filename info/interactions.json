@@ -1,0 +1,9 @@
+{
+  "Alice|Bob": {
+    "current": "vec_00040001",
+    "alpha": 0.8,
+    "history": [
+      { "t": 201, "delta": "vec_00040012" }
+    ]
+  }
+}

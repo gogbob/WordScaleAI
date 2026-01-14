@@ -1,0 +1,12 @@
+[
+  {
+    "pass": "forward_integration",
+    "version": "1.0",
+    "timestamp": "2026-01-12T21:10:00Z"
+  },
+  {
+    "pass": "backward_smoothing",
+    "gamma": 0.7,
+    "timestamp": "2026-01-12T21:12:00Z"
+  }
+]

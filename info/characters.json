@@ -1,0 +1,23 @@
+{
+  "Alice": {
+    "voice": {
+      "current": "vec_00010001",
+      "history": [
+        { "t": 12, "delta": "vec_00004523", "weight": 0.2 },
+        { "t": 88, "delta": "vec_00007891", "weight": 0.4 }
+      ],
+      "alpha": 0.99
+    },
+
+    "emotion": {
+      "position": "vec_00020001",
+      "velocity": "vec_00020002",
+      "beta": 0.85
+    },
+
+    "prosody": {
+      "current": "vec_00030001",
+      "alpha": 0.5
+    }
+  }
+}
