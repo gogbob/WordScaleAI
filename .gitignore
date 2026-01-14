@@ -1,0 +1,23 @@
+# Virtual Environment
+.venv-py311/
+venv/
+env/
+ENV/
+.venv/
+*.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Large data files
+dataset/stories.csv
+dataset/db_books.csv
