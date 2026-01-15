@@ -2,6 +2,14 @@
 Story Analyzer
 Analyzes stories using NER to extract and categorize entities
 """
+import sys
+from pathlib import Path
+
+# Add project root to Python path
+project_root = Path(__file__).parent.parent
+if str(project_root) not in sys.path:
+    sys.path.insert(0, str(project_root))
+
 import re
 from typing import Dict, List, Optional
 from models.ner_model import NERModel
@@ -55,8 +63,16 @@ class StoryAnalyzer:
             Dictionary containing metadata, entities, and entity groupings
         """
         # Extract metadata and clean story
+        print("Extracting book metadata...")
         parsed = self.extract_book_metadata(story_text)
         clean_story = parsed['story']
+        
+        # Remove escape sequences and clean text
+        clean_story = clean_story.replace('\\n', ' ').replace('\\r', ' ').replace('\\t', ' ')
+        clean_story = clean_story.replace('\n', ' ').replace('\r', ' ').replace('\t', ' ')
+        clean_story = clean_story.replace("\\'", "'").replace('\\"', '"')
+        # Clean up multiple spaces
+        clean_story = ' '.join(clean_story.split())
         
         # Extract entities
         entities = self.ner_model.extract_entities(clean_story)
@@ -81,7 +97,11 @@ class StoryAnalyzer:
             List of character names
         """
         parsed = self.extract_book_metadata(story_text)
-        entities_by_type = self.ner_model.get_entities_by_type(parsed['story'])
+        clean_story = parsed['story'].replace('\\n', ' ').replace('\\r', ' ').replace('\\t', ' ')
+        clean_story = clean_story.replace('\n', ' ').replace('\r', ' ').replace('\t', ' ')
+        clean_story = clean_story.replace("\\'", "'").replace('\\"', '"')
+        clean_story = ' '.join(clean_story.split())
+        entities_by_type = self.ner_model.get_entities_by_type(clean_story)
         return entities_by_type.get('PERSON', [])
     
     def get_locations(self, story_text: str) -> List[str]:
@@ -95,7 +115,11 @@ class StoryAnalyzer:
             List of location names
         """
         parsed = self.extract_book_metadata(story_text)
-        entities_by_type = self.ner_model.get_entities_by_type(parsed['story'])
+        clean_story = parsed['story'].replace('\\n', ' ').replace('\\r', ' ').replace('\\t', ' ')
+        clean_story = clean_story.replace('\n', ' ').replace('\r', ' ').replace('\t', ' ')
+        clean_story = clean_story.replace("\\'", "'").replace('\\"', '"')
+        clean_story = ' '.join(clean_story.split())
+        entities_by_type = self.ner_model.get_entities_by_type(clean_story)
         
         locations = []
         locations.extend(entities_by_type.get('GPE', []))  # Geopolitical entities
